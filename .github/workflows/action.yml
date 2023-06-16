@@ -4,8 +4,10 @@ name: Update dailynews
 
 # 国际标准时间2点（北京时间10点）
 on:
-  schedule:
-    - cron: '0 2 * * *'
+#   schedule:
+#     - cron: '0 2 * * *'
+  push:
+    branches: [ "master" ]
   workflow_dispatch:
 
 jobs:
@@ -21,21 +23,21 @@ jobs:
         run: ./install.sh
 
       - name: Push articles
-        env:
-          FEISHU_KEY: ${{ secrets.FEISHU_KEY }}
-          WECOM_KEY: ${{ secrets.WECOM_KEY }}
-          DINGTALK_KEY: ${{ secrets.DINGTALK_KEY }}
-          QQ_KEY: ${{ secrets.QQ_KEY }}
-          TELEGRAM_KEY: ${{ secrets.TELEGRAM_KEY }}
-          MAIL_KEY: ${{ secrets.MAIL_KEY }}
-          MAIL_RECEIVER: ${{ secrets.MAIL_RECEIVER }}
+#         env:
+#           FEISHU_KEY: ${{ secrets.FEISHU_KEY }}
+#           WECOM_KEY: ${{ secrets.WECOM_KEY }}
+#           DINGTALK_KEY: ${{ secrets.DINGTALK_KEY }}
+#           QQ_KEY: ${{ secrets.QQ_KEY }}
+#           TELEGRAM_KEY: ${{ secrets.TELEGRAM_KEY }}
+#           MAIL_KEY: ${{ secrets.MAIL_KEY }}
+#           MAIL_RECEIVER: ${{ secrets.MAIL_RECEIVER }}
         run: python3 yarb.py
 
       - name: Commit
         run: |
           git diff
-          git config --global user.email firmianay@gmail.com
-          git config --global user.name firmianay
+          git config --global user.email cartersaon123@gmail.com
+          git config --global user.name carter
           git add archive today.md
           git commit -m "每日安全资讯（`date +'%Y-%m-%d'`）"
 
