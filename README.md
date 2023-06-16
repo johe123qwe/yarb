@@ -105,11 +105,3 @@ $ nohup ./yarb.py --cron 11:00 > run.log 2>&1 &
 </body>
 </opml>
 ```
-
-## 关注我们
-
-[VulnTotal安全](https://github.com/VulnTotal-Team)致力于分享高质量原创文章和开源工具，包括物联网/汽车安全、移动安全、网络攻防等。
-
-GNU General Public License v3.0
-
-[![Stargazers over time](https://starchart.cc/VulnTotal-Team/yarb.svg)](https://starchart.cc/VulnTotal-Team/yarb)
